@@ -7,4 +7,4 @@ pipelines:
         script:
           - apk add --no-cache --virtual .build-deps gcc musl-dev
           - apk del .build-deps
-          - docker.compose ups
+          - docker.compose up
