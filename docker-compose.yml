@@ -21,7 +21,7 @@ services:
   web:
     <<: &web
       # Image name is changed in production:
-      image: "visitor-back-main:dev"
+      image: "visitor-back:dev"
       build:
         target: development_build
         context: .
@@ -29,8 +29,8 @@ services:
         args:
           DJANGO_ENV: development
         cache_from:
-          - "visitor-back-main:dev"
-          - "visitor-back-main:latest"
+          - "visitor-back:dev"
+          - "visitor-back:latest"
           - "*"
 
       volumes:

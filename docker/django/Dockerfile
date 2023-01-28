@@ -4,8 +4,8 @@
 
 FROM python:3.9.15-slim-buster AS development_build
 
-LABEL maintainer="visitor"
-LABEL vendor="visitor"
+LABEL maintainer="redsmart.team.tech"
+LABEL vendor="redsmart.team.tech"
 
 # `DJANGO_ENV` arg is used to make prod / dev builds:
 ARG DJANGO_ENV \

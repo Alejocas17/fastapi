@@ -1,9 +1,9 @@
 [tool.poetry]
-name = "visitor-back-main"
-description = "visitor-back-main"
+name = "visitor-back"
+description = "visitor back"
 version = "0.1.0"
 readme = "README.md"
-authors = ["visitor"]
+authors = ["redsmart.team.tech"]
 
 
 [tool.poetry.dependencies]
