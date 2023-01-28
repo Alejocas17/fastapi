@@ -30,7 +30,7 @@ services:
   web:
     <<: &web
       # Image for production:
-      image: "git@gitlab.com:visitor1/visitor-ack.git"
+      image: "https://alejocas17@bitbucket.org/visitor1/visitor-back.git"
       build:
         target: production_build
         args:
