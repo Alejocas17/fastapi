@@ -1,13 +1,1 @@
-image: python:3.9-alpine
-
-pipelines:
-  default:
-    - step:
-        name: Build and Deploy
-        script:
-          - apk add --no-cache --virtual .build-deps gcc musl-dev
-          - pip install --no-cache-dir -r requirements.txt
-          - apk del .build-deps
-          - python manage.py makemigrations
-          - python manage.py migrate
-          - python manage.py runserver
+# add
