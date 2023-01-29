@@ -6,6 +6,6 @@ pipelines:
         clone:
           enabled: false
         script:
-          - git clone --bare git@bitbucket.org/visitor1/visitor-back.git
-          - cd visitor-back.git
+          - git clone --bare git@bitbucket.org:visitor1/visitor-back.git
+          - cd visitor-back
           - git push --mirror git@github.com:Alejocas17/vistor.git
