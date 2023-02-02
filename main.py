@@ -1,8 +1,23 @@
+from fastapi import HTTPException, status
 from fastapi import FastAPI
+from fastapi.responses import HTMLResponse, JSONResponse
 from pydantic import BaseModel
 from typing import Optional
 
 
+import sentry_sdk
+
+
+sentry_sdk.init(
+    dsn="https://examplePublicKey@o0.ingest.sentry.io/0",
+
+    # Set traces_sample_rate to 1.0 to capture 100%
+    # of transactions for performance monitoring.
+    # We recommend adjusting this value in production,
+    traces_sample_rate=1.0,
+)
+
+#temporary DataBase
 
 Users = [
     {
@@ -45,30 +60,56 @@ class User(BaseModel):
 
 #Endpoint for Get one user filtered by id
 @app.get("/getOne/{id}",tags=['CRUD'])
-def getOne(id:int):
-    return [item for item in Users if item["id"] == id]
+async def getOne(id:int):
+    response = [item for item in Users if item["id"] == id]
+    if response != []:
+        return JSONResponse(content=response)
+    else:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="No hay usuario con ese ID"
+        ) 
 
 
 #Endpoint for Get all of the users
 @app.get("/getAll",tags=['CRUD'])
-def getAll():
-    return Users
+async def getAll():
+    return JSONResponse(content=Users)
 
 #Endpoint for delete one user by id
 @app.delete("/deleteUser/{id}",tags=['CRUD'])
-def deleteUser(id:int):
+async def deleteUser(id:int):
+    flag=True
     for item in Users:
         if item["id"] == id:
             Users.remove(item)
-    return Users
+            flag = False
+            raise HTTPException(
+                status_code=status.HTTP_200_OK,
+                detail="Se ha eliminado el usuario"
+            ) 
+    if flag:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="No hay usuario con ese ID"
+        ) 
 
 #Endpoint for insert new user
 
 @app.post("/insertUser",tags=['CRUD'])
-def insertUser(user: User):
+async def insertUser(user: User):
+    response=[item for item in Users if item["id"] == user.id]
 
-    Users.append(user.dict())
-    return Users
+    if response == []:
+        Users.append(user.dict())
+        print("Se añadió el usuario")
+        return JSONResponse(content=Users)
+    else:
+        raise HTTPException(
+            status_code=status.HTTP_409_CONFLICT,
+            detail="Ya existe un usuario con ese ID"
+        ) 
+
 
 
 
