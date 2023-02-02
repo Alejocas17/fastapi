@@ -1,32 +1,29 @@
-# visitor-back
+---
+title: FastAPI
+description: A FastAPI server
+tags:
+  - fastapi
+  - python
+---
 
-visitor back
+# FastAPI Example
 
-This project was generated with [`wemake-django-template`](https://github.com/wemake-services/wemake-django-template). Current template version is: [f95aa150a88969911c2489d3c67133e90e0b73c3](https://github.com/wemake-services/wemake-django-template/tree/f95aa150a88969911c2489d3c67133e90e0b73c3). See what is [updated](https://github.com/wemake-services/wemake-django-template/compare/f95aa150a88969911c2489d3c67133e90e0b73c3...master) since then.
+This example starts up a [FastAPI](https://fastapi.tiangolo.com/) server.
 
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/-NvLj4?referralCode=milo)
+## ✨ Features
 
-[![wemake.services](https://img.shields.io/badge/%20-wemake.services-green.svg?label=%20&logo=data%3Aimage%2Fpng%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC%2FxhBQAAAAFzUkdCAK7OHOkAAAAbUExURQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP%2F%2F%2F5TvxDIAAAAIdFJOUwAjRA8xXANAL%2Bv0SAAAADNJREFUGNNjYCAIOJjRBdBFWMkVQeGzcHAwksJnAPPZGOGAASzPzAEHEGVsLExQwE7YswCb7AFZSF3bbAAAAABJRU5ErkJggg%3D%3D)](https://wemake-services.github.io)
-[![wemake-python-styleguide](https://img.shields.io/badge/style-wemake-000000.svg)](https://github.com/wemake-services/wemake-python-styleguide)
+- FastAPI
+- Python 3
 
+## 💁‍♀️ How to use
 
-## Prerequisites
+- Deploy using the button 👆
+- Clone locally and install packages with Pip using `pip install -r requirements.txt` or Poetry using `poetry install`
+- Connect to your project using `railway link`
+- Run locally using `uvicorn main:app --reload`
 
-You will need:
+## 📝 Notes
 
-- `python3.9` (see `pyproject.toml` for full version)
-- `postgresql` with version `13`
-- `docker` with [version at least](https://docs.docker.com/compose/compose-file/#compose-and-docker-compatibility-matrix) `18.02`
-
-
-## Development
-
-When developing locally, we use:
-
-- [`editorconfig`](http://editorconfig.org/) plugin (**required**)
-- [`poetry`](https://github.com/python-poetry/poetry) (**required**)
-- `pycharm 2017+` or `vscode`
-
-
-## Documentation
-
-Full documentation is available here: [`docs/`](docs).
+- To learn about how to use FastAPI with most of its features, you can visit the [FastAPI Documentation](https://fastapi.tiangolo.com/tutorial/).
+- FastAPI provides automatic documentation to call and test your API directly from the browser. You can access it at `/docs` with [Swagger](https://github.com/swagger-api/swagger-ui) or at `/redoc` with [Redoc](https://github.com/Rebilly/ReDoc).
