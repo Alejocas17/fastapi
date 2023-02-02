@@ -40,6 +40,8 @@ class User(BaseModel):
     cellphone: str
     address: str
 
+############################### Endpoints for USER #############################
+
 
 #Endpoint for Get one user filtered by id
 @app.get("/getOne/{id}",tags=['CRUD'])
@@ -71,7 +73,7 @@ def insertUser(user: User):
 
 
 
-#endpoints for roles
+############################### Endpoints for USER adn ROLES #############################
 
 
 @app.get("/getAllRoles",tags=['CRUD_ROLES'])
