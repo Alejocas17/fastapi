@@ -1,4 +1,12 @@
----
+# Visitor Backend Development
+
+In order to run the app, execute the following command:
+
+- python .\main.py
+
+And it will automatically create the server and will be constantly listening for changes in the code.
+
+<!-- ---
 title: FastAPI
 description: A FastAPI server
 tags:
@@ -26,4 +34,4 @@ This example starts up a [FastAPI](https://fastapi.tiangolo.com/) server.
 ## 📝 Notes
 
 - To learn about how to use FastAPI with most of its features, you can visit the [FastAPI Documentation](https://fastapi.tiangolo.com/tutorial/).
-- FastAPI provides automatic documentation to call and test your API directly from the browser. You can access it at `/docs` with [Swagger](https://github.com/swagger-api/swagger-ui) or at `/redoc` with [Redoc](https://github.com/Rebilly/ReDoc).
+- FastAPI provides automatic documentation to call and test your API directly from the browser. You can access it at `/docs` with [Swagger](https://github.com/swagger-api/swagger-ui) or at `/redoc` with [Redoc](https://github.com/Rebilly/ReDoc). -->
