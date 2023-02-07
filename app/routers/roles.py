@@ -48,11 +48,11 @@ async def insertRole(role: Role, db:Session=Depends(get_db)):
     if response==[]:
         # Users.append(user.dict())
         new_role = UserRole(
-            role_name = role.role_name,
+            roleName = role.role_name,
             description =  role.description,
-            is_active = role.is_active,
-            created_at = datetime.now(),
-            updated_at = datetime.now()
+            isActive = role.is_active,
+            createdAt = datetime.now(),
+            updatedAt = datetime.now()
         )
         db.add(new_role)
         db.commit()
@@ -68,22 +68,22 @@ async def insertRole(role: Role, db:Session=Depends(get_db)):
 @router.put("/update",tags=['CRUD_ROLES'])
 def updateRole(role: Role,id:int,db:Session=Depends(get_db)):
     response = db.query(models.Role).filter_by(id=id)
-    created_date = response.first().created_at
+    created_date = response.first().createdAt
     if response != None:
 
         new_role = UserRole(
-            role_name = role.role_name,
+            roleName = role.role_name,
             description =  role.description,
-            is_active = role.is_active,
+            isActive = role.is_active,
         )
 
         print(response.first().created_at)
         print(new_role.role_name)
-        response.update({models.Role.role_name:new_role.role_name},synchronize_session = False)
+        response.update({models.Role.roleName:new_role.roleName},synchronize_session = False)
         response.update({models.Role.description:new_role.description},synchronize_session = False)
-        response.update({models.Role.is_active:new_role.is_active},synchronize_session = False)
-        response.update({models.Role.updated_at:new_role.updated_at},synchronize_session = False)
-        response.update({models.Role.created_at:created_date},synchronize_session = False)
+        response.update({models.Role.isActive:new_role.isActive},synchronize_session = False)
+        response.update({models.Role.updatedAt:new_role.updatedAt},synchronize_session = False)
+        response.update({models.Role.createdAt:created_date},synchronize_session = False)
         db.commit()
         db.close()
         data = db.query(models.Role).all()

@@ -10,15 +10,16 @@ class User(Base):
     address = Column(String)
     cellphone = Column(String)
     mail = Column(String)
-    created_at = Column(DateTime,default=datetime.now,onupdate=datetime.now)
+    createdAt = Column(DateTime,default=datetime.now,onupdate=datetime.now)
+    updatedAt = Column(DateTime,default=datetime.now,onupdate=datetime.now)
 
 class Role(Base):
     __tablename__ = 'role'
     id = Column(Integer, primary_key=True,autoincrement=True)
-    role_name = Column(String)
+    roleName = Column(String)
     description = Column(String)
-    is_active = Column(Boolean)
-    created_at = Column(DateTime,default=datetime.now,onupdate=datetime.now)
-    updated_at = Column(DateTime,default=datetime.now,onupdate=datetime.now)
+    isActive = Column(Boolean)
+    createdAt = Column(DateTime,default=datetime.now,onupdate=datetime.now)
+    updatedAt = Column(DateTime,default=datetime.now,onupdate=datetime.now))
 
 

@@ -11,12 +11,13 @@ class User(BaseModel):
     cellphone: str
     address: str
     mail: str
-    created_at: datetime = datetime.now()
+    createdAt: datetime = datetime.now()
+    updatedAt: datetime = datetime.now()
 
 class Role(BaseModel):
     id : Optional[int] = None
-    role_name : str
+    roleName : str
     description : str
-    is_active : bool
-    updated_at : datetime = datetime.now()
-    created_at : datetime = datetime.now()
+    isActive : bool
+    updatedAt : datetime = datetime.now()
+    createdAt : datetime = datetime.now()
