@@ -66,7 +66,7 @@ async def insertRole(role: Role, db:Session=Depends(get_db)):
         )
 
 @router.put("/update",tags=['CRUD_ROLES'])
-def updateRole(role: Role,id:int,db:Session=Depends(get_db)):
+async def updateRole(role: Role,id:int,db:Session=Depends(get_db)):
     response = db.query(models.Role).filter_by(id=id)
     created_date = response.first().createdAt
     if response != None:
@@ -114,5 +114,5 @@ async def deleteRole(id:int,db:Session=Depends(get_db)):
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail="No hay rol con ese ID"
-        ) 
+        )
 
