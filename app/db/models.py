@@ -20,6 +20,6 @@ class Role(Base):
     description = Column(String)
     isActive = Column(Boolean)
     createdAt = Column(DateTime,default=datetime.now,onupdate=datetime.now)
-    updatedAt = Column(DateTime,default=datetime.now,onupdate=datetime.now))
+    updatedAt = Column(DateTime,default=datetime.now,onupdate=datetime.now)
 
 
