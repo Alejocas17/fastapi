@@ -48,9 +48,9 @@ async def insertRole(role: Role, db:Session=Depends(get_db)):
     if response==[]:
         # Users.append(user.dict())
         new_role = UserRole(
-            roleName = role.role_name,
+            roleName = role.roleName,
             description =  role.description,
-            isActive = role.is_active,
+            isActive = role.isActive,
             createdAt = datetime.now(),
             updatedAt = datetime.now()
         )
@@ -72,13 +72,11 @@ async def updateRole(role: Role,id:int,db:Session=Depends(get_db)):
     if response != None:
 
         new_role = UserRole(
-            roleName = role.role_name,
+            roleName = role.roleName,
             description =  role.description,
-            isActive = role.is_active,
+            isActive = role.isActive,
         )
 
-        print(response.first().created_at)
-        print(new_role.role_name)
         response.update({models.Role.roleName:new_role.roleName},synchronize_session = False)
         response.update({models.Role.description:new_role.description},synchronize_session = False)
         response.update({models.Role.isActive:new_role.isActive},synchronize_session = False)
