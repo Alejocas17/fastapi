@@ -4,7 +4,8 @@ from fastapi.responses import HTMLResponse, JSONResponse
 from app.squemas import User
 import uvicorn
 import sentry_sdk
-from app.routers.user import router
+from app.routers.user import router as router_user
+from app.routers.roles import router as router_role
 from app.db.database import Base, engine
 
 def create_tables():
@@ -52,7 +53,8 @@ sentry_sdk.init(
 
 app = FastAPI()
 
-app.include_router(router)
+app.include_router(router_user)
+app.include_router(router_role)
 
 if __name__=='__main__':
     uvicorn.run("main:app",port=8000,reload=True,host="localhost")

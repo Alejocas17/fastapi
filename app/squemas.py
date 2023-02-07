@@ -12,3 +12,11 @@ class User(BaseModel):
     address: str
     mail: str
     created_at: datetime = datetime.now()
+
+class Role(BaseModel):
+    id : Optional[int] = None
+    role_name : str
+    description : str
+    is_active : bool
+    updated_at : datetime = datetime.now()
+    created_at : datetime = datetime.now()

@@ -18,7 +18,7 @@ router = APIRouter(
     tags = ["CRUD"],
 )
 
-Users = []
+# Users = []
 
 ############################### Endpoints for USER #############################
 
@@ -26,11 +26,9 @@ Users = []
 #Endpoint for Get one user filtered by id
 @router.get("/getOne/{id}",tags=['CRUD'])
 async def getOne(id:int,db:Session=Depends(get_db)):
-    data = db.query(models.User).all()
-    print(data)
-    response = [item for item in data if item.id == id]
-    if response != []:
-        return response
+    record = db.query(models.User).filter_by(id=id).first()
+    if record != None:
+        return record
     else:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
@@ -47,7 +45,7 @@ async def getAll(db:Session=Depends(get_db)):
     return data
 
 #Endpoint for delete one user by id
-@router.delete("/deleteUser/{id}",tags=['CRUD'])
+@router.delete("/delete/{id}",tags=['CRUD'])
 async def deleteUser(id:int,db:Session=Depends(get_db)):
     flag=True
 
@@ -69,12 +67,12 @@ async def deleteUser(id:int,db:Session=Depends(get_db)):
 
 #Endpoint for insert new user
 
-@router.post("/insertUser",tags=['CRUD'])
+@router.post("/insert",tags=['CRUD'])
 async def insertUser(user: User, db:Session=Depends(get_db)):
 
     data = db.query(models.User).all()
     
-    response=[item for item in data if item.id == user.id]
+    response=[item for item in data if item.mail == user.mail]
     print(user.name)
     
     if response==[]:
@@ -94,7 +92,7 @@ async def insertUser(user: User, db:Session=Depends(get_db)):
     else:
         raise HTTPException(
             status_code=status.HTTP_409_CONFLICT,
-            detail="Ya existe un usuario con ese ID"
+            detail="Ya existe un usuario con ese correo"
         ) 
 
 

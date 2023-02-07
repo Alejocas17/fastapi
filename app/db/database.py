@@ -9,7 +9,7 @@ Base = declarative_base()
 
 # aquí puedes agregar tus modelos de SQLAlchemy
 
-engine = create_engine("postgresql://postgres:postgres@localhost/postgres")
+engine = create_engine("postgresql://postgres:iI3EhBpxswPav5ZwxrCw@containers-us-west-50.railway.app:7449/railway")
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 
