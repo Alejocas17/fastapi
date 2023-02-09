@@ -56,5 +56,15 @@ app = FastAPI()
 app.include_router(router_user)
 app.include_router(router_role)
 
+#Allow connections from frontend
+
+@app.middleware("http")
+async def add_cors_headers(request, call_next):
+    response = await call_next(request)
+    response.headers["Access-Control-Allow-Origin"] = "*"
+    return response
+
+
+
 if __name__=='__main__':
     uvicorn.run("main:app",port=8000,reload=True,host="localhost")
