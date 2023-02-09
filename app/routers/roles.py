@@ -42,7 +42,7 @@ async def insertRole(role: Role, db:Session=Depends(get_db)):
 
     data = db.query(models.Role).all()
     
-    response=[item for item in data if item.role_name == role.role_name]
+    response=[item for item in data if item.roleName == role.roleName]
     # print(user.name)
     
     if response==[]:
