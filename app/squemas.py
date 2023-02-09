@@ -18,6 +18,6 @@ class Role(BaseModel):
     id : Optional[int] = None
     roleName : str
     description : str
-    isActive : Optional[bool] = None
+    isActive : Optional[bool] = True
     updatedAt : Optional[datetime] = datetime.now()
     createdAt : Optional[datetime] = datetime.now()

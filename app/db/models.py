@@ -19,7 +19,7 @@ class Role(Base):
     roleName = Column(String)
     description = Column(String)
     isActive = Column(Boolean,default=True,nullable=True)
-    createdAt = Column(DateTime,default=datetime.now,onupdate=datetime.now, nullable=True)
-    updatedAt = Column(DateTime,default=datetime.now,onupdate=datetime.now, nullable=True)
+    createdAt = Column(DateTime,default=datetime.now,onupdate=datetime.now,nullable=True)
+    updatedAt = Column(DateTime,default=datetime.now,onupdate=datetime.now,nullable=True)
 
 
