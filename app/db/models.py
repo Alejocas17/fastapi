@@ -18,8 +18,8 @@ class Role(Base):
     id = Column(Integer, primary_key=True,autoincrement=True)
     roleName = Column(String)
     description = Column(String)
-    isActive = Column(Boolean)
-    createdAt = Column(DateTime,default=datetime.now,onupdate=datetime.now)
-    updatedAt = Column(DateTime,default=datetime.now,onupdate=datetime.now)
+    isActive = Column(Boolean,default=True,required=False)
+    createdAt = Column(DateTime,default=datetime.now,onupdate=datetime.now, required=False)
+    updatedAt = Column(DateTime,default=datetime.now,onupdate=datetime.now, required=False)
 
 
