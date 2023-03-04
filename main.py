@@ -75,4 +75,4 @@ async def options_handler(path: str, response: Response):
 
 
 if __name__=='__main__':
-    uvicorn.run("main:app",port=8000,reload=True,host="localhost")
+    uvicorn.run("main:app",port=8000,reload=True,host="0.0.0.0")
