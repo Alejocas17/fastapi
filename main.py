@@ -6,6 +6,7 @@ import uvicorn
 import sentry_sdk
 from app.routers.user import router as router_user
 from app.routers.roles import router as router_role
+from app.routers.authentication import router as router_auth
 from app.db.database import Base, engine
 
 def create_tables():
@@ -55,6 +56,7 @@ app = FastAPI()
 
 app.include_router(router_user)
 app.include_router(router_role)
+app.include_router(router_auth)
 
 #Allow connections from frontend
 

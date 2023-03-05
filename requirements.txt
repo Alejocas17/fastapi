@@ -17,3 +17,5 @@ websockets==10.4
 sqlalchemy==2.0.1
 psycopg2 ==2.9.5
 sentry_sdk == 1.14.0
+google-auth
+google-auth-oauthlib
